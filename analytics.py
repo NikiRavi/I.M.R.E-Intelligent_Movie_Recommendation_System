@@ -33,7 +33,7 @@ def main(spark_session, data):
     datasetDF_production_companies.show(50)
     datasetDF_production_companies.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("production")
     # setting output path
-    output_path = 'production/'
+    output_path = 'Plotlyjs/production/'
     #creating system command line
     cmd_production = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'production.csv'
     #executing system command
@@ -45,7 +45,7 @@ def main(spark_session, data):
     datasetDF_movies.show(50)
     datasetDF_movies.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("movies")
     # setting output path
-    output_path = 'movies/'
+    output_path = 'Plotlyjs/movies/'
     #creating system command line
     cmd_movies = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'movies_final.csv'
     #executing system command
@@ -57,7 +57,7 @@ def main(spark_session, data):
     datasetDF_users.show(50)
     datasetDF_users.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("users")
     # setting output path
-    output_path = 'users/'
+    output_path = 'Plotlyjs/users/'
     #creating system command line
     cmd_users = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'users.csv'
     #executing system command
@@ -68,7 +68,7 @@ def main(spark_session, data):
     datasetDF_genre = datasetDF_genre.filter(datasetDF_genre['title'].isNotNull())
     datasetDF_genre.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("genre")
     # setting output path
-    output_path = 'genre/'
+    output_path = 'Plotlyjs/genre/'
     #creating system command line
     cmd_genre = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'genre-movie.csv'
     #executing system command
@@ -79,7 +79,7 @@ def main(spark_session, data):
     datasetDF_lang = datasetDF_lang.filter(datasetDF_lang['title'].isNotNull())
     datasetDF_lang.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("lang")
     # setting output path
-    output_path = 'lang/'
+    output_path = 'Plotlyjs/lang/'
     #creating system command line
     cmd_lang = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'lang-movie.csv'
     #executing system command
@@ -90,7 +90,7 @@ def main(spark_session, data):
     datasetDF_vote = datasetDF_vote.filter(datasetDF_vote['title'].isNotNull())
     datasetDF_vote.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("vote")
     # setting output path
-    output_path = 'vote/'
+    output_path = 'Plotlyjs/vote/'
     #creating system command line
     cmd_vote = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'vote-movie.csv'
     #executing system command
@@ -101,7 +101,7 @@ def main(spark_session, data):
     datasetDF_lpro = datasetDF_lpro.filter(datasetDF_lpro['title'].isNotNull())
     datasetDF_lpro.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("production-mov")
     # setting output path
-    output_path = 'production-mov/'
+    output_path = 'Plotlyjs/production-mov/'
     #creating system command line
     cmd_lpro = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'production-movie.csv'
     #executing system command
@@ -112,7 +112,7 @@ def main(spark_session, data):
     datasetDF_langpro = datasetDF_langpro.filter(datasetDF_langpro['language'].isNotNull())
     datasetDF_langpro.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("lang-pro")
     # setting output path
-    output_path = 'lang-pro/'
+    output_path = 'Plotlyjs/lang-pro/'
     #creating system command line
     cmd_lanpro = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'lang-pro.csv'
     #executing system command
@@ -123,7 +123,7 @@ def main(spark_session, data):
     datasetDF_ymovie = datasetDF_ymovie.filter(datasetDF_ymovie['title'].isNotNull())
     datasetDF_ymovie.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("year")
     # setting output path
-    output_path = 'year/'
+    output_path = 'Plotlyjs/year/'
     #creating system command line
     cmd_ymovie = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'year-movie.csv'
     #executing system command
@@ -134,7 +134,7 @@ def main(spark_session, data):
     datasetDF_ypro = datasetDF_ypro.filter(datasetDF_ypro['production_companies'].isNotNull())
     datasetDF_ypro.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("year-pro")
     # setting output path
-    output_path = 'year-pro/'
+    output_path = 'Plotlyjs/year-pro/'
     #creating system command line
     cmd_ypro = 'mv ' + output_path + 'part-*' + '  ' + output_path + 'year-prod.csv'
     #executing system command
