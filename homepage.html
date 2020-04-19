@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body style="background-color: black; color: white;">
+
+<!-- Navigation -->
+<nav class="w3-bar w3-black"><font size = 3 color="grey">
+  <a href="#theteam" class="w3-button w3-bar-item" style="float:right;">THE 2!</a>
+  <a href="http://localhost:8000/reports.html" class="w3-button w3-bar-item" style="float:right;">REPORTS</a>
+  <!-- <a href="#mymovies" class="w3-button w3-bar-item" style="float:right;">My Movies</a> -->
+  <a href="#home" class="w3-button w3-bar-item" style="float:right;">HOME</a></font>
+</nav>
+
+<!-- Slide Show -->
+<section>
+  <h1 class="w3-wide" style="color:red; ,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15); text-align: center">MOVIE RECOMMENDATION - ANALYTICS ENGINE</h1>
+  <img class="mySlides" src="images/1.jpeg"
+  style="height:60vh;width:100%;background-size: cover; background-position: center">
+  <img class="mySlides" src="images/2.jpg"
+  style="height:60vh;width:100%;background-size: cover; background-position: center">
+  <img class="mySlides" src="images/3.jpg"
+  style="height:60vh;width:100%;background-size: cover; background-position: center">
+  <img class="mySlides" src="images/4.jpg"
+  style="height:60vh;width:100%;background-size: cover; background-position: center">
+  <img class="mySlides" src="images/5.jpg"
+  style="height:60vh;width:100%;background-size: cover; background-position: center">
+</section>
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" style="max-width:600px;">
+  <h1><p color="orange"><font size = 6.5 face = "comicsans" color="orange">I.M.R.E</font></p></h1>
+  <h1><p color="orange"><font size = 6.5 face = "comicsans" color="orange">INTELLIGENT MOVIE RECOMMENDATION ENGINE</font></p></h1>
+  <p class="w3-justify"><font size = 5 face = "comicsans" color="grey"><b>Intelligent Movie Recommendation Engine is a brilliant
+    recommender which makes recommendations like no other recommendation engine. With it's robust recommendation algorithm and
+    it's perfect algorithm makes it stand out among other recommenders. Enter a Movie and you get the results, which are mind
+    boggling that makes one believe how good the IMRE is designed and developed. The algorithm underneath has been built in such a way
+    that it makes the best possible predictions.</b></font></p>
+    <p class="w3-center"><font size = 5 face = "comicsans" color="orange"><b>Try Our I.M.R.E & You Will Know It!!</b></font></p>
+</section>
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-20 w3-center" id="theteam">
+<h2><p class="w3-center" color="orange"><font size = 6.5 face = "comicsans" color="Grey">THE TEAM</p></h2>
+<p class="w3-center">Meet the team !</p>
+<p class="w3-justify">
+<div class="row-custom">
+<div class="custom">
+  <p align="center"><font color="orange">
+  <img src="images/savitaa.jpg" style="width:35%; padding-left: 100px; align='left'" class="">
+  <h3 align = 'center'> SAVITAA VENKATESWARAN</h3>
+  <h5 align = 'center'> DEVELOPER</h5></font></p>
+</div>
+<div class="custom">
+  <p align="center"><font color="orange">
+  <img src="images/nikitha.jpg"style="width:35%; padding-left: 50px;" class="">
+  <h3 align = "center"> NIKITHA RAVI</h3>
+  <h5 align = 'center'> DEVELOPER</h5></font></p>
+</div>
+</div></p></div></div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <p class="w3-medium">
+  Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </p>
+</footer>
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5000);
+}
+</script>
+</body>
+</html>

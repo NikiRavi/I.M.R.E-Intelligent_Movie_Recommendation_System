@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body style="background-color: black; color: white;">
+
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="#reports" class="w3-button w3-bar-item" style="float:right;">Reports</a>
+  <a href="http://localhost:8000/homepage.html" class="w3-button w3-bar-item" style="float:right;">Home</a>
+</nav>
+
+<h3><p color="orange" align="center"><font face = "comicsans" color="orange">Analytics based on movies</font></p></h3>
+
+<p color="white"><font face = "comicsans" color="white">Average Rating vs Movie</font></p>
+<!-- <div id ="plots" style="width:100%; height=100%"> -->
+<div id="myDiv" style="width:100%; height=50%; float='left'"></div>
+<!-- </div> -->
+<p color="white"><font face = "comicsans" color="white">Average popularity vs Movie</font></p>
+<div id="myDiv1" style="width:100%; height=50%; float='right'"></div>
+
+<p color="white"><font face = "comicsans" color="white">Average Vote vs Movie</font></p>
+<div id="myDiv2" style="width:100%; height=50%; float='right'"></div>
+
+<p color="white"><font face = "comicsans" color="white">Average Vote vs Production company</font></p>
+<div id="myDiv3" style="width:100%; height=50%; float='right'"></div>
+
+<p color="white"><font face = "comicsans" color="white">Average Rating vs Production company</font></p>
+<div id="myDiv4" style="width:100%; height=50%; float='right'"></div>
+
+<p color="white"><font face = "comicsans" color="white">Average Popularity vs Production company</font></p>
+<div id="myDiv5" style="width:100%; height=50%; float='right'"></div>
+
+<p color="white"><font face = "comicsans" color="white">Average Rating vs User</font></p>
+<div id="myDiv6" style="width:100%; height=100%; float='right'"></div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <p class="w3-medium">
+  Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </p>
+</footer>
+
+
+<script>
+// Plot bar graph for average rating vs movie
+Plotly.d3.csv("http://localhost:8000/Plotlyjs/movies/movies_final.csv", function(err, rows){
+
+  function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+
+ var trace1 = {
+ //mode: 'lines+markers',
+ type: 'bar',
+ name: 'average rating',
+ x: unpack(rows, 'title'),
+ y: unpack(rows, 'average rating'),
+ line: {color: '#17BECF'}
+ }
+
+
+  var data = [trace1];
+
+ //var layout = {
+ //title: 'Average rating per movie',
+ //};
+ var layout = {
+  title: 'Average rating per movie',
+  font:{
+    family: 'Raleway, sans-serif',
+    size: '7'
+  },
+  showlegend: false,
+  xaxis: {
+    tickangle: -45
+  },
+  yaxis: {
+    zeroline: false,
+    gridwidth: 2
+  },
+  bargap :0.05
+};
+
+Plotly.newPlot('myDiv', data, layout, {scrollZoom: true}, {responsive: true});
+ })
+
+// average popularity vs movie
+Plotly.d3.csv("http://localhost:8000/Plotlyjs/movies/movies_final.csv", function(err, rows){
+
+  function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+
+ var trace1 = {
+ //mode: 'lines+markers',
+ mode: 'lines+markers',
+ type: 'scatter',
+ name: 'average rating',
+ x: unpack(rows, 'title'),
+ y: unpack(rows, 'average popularity'),
+ line: {color: '#17BECF'}
+ }
+
+
+  var data = [trace1];
+
+ var layout = {
+  title: 'Average popularity per movie',
+  font:{
+    family: 'Raleway, sans-serif',
+    size: '7'
+  },
+  showlegend: false,
+  xaxis: {
+    tickangle: -45
+  },
+  yaxis: {
+    zeroline: false,
+    gridwidth: 2
+  }
+};
+
+Plotly.newPlot('myDiv1', data, layout, {showLink: true}, {responsive: true});
+ })
+
+ //Vote average vs Movie
+ Plotly.d3.csv("http://localhost:8000/Plotlyjs/movies/movies_final.csv", function(err, rows){
+
+   function unpack(rows, key) {
+   return rows.map(function(row) { return row[key]; });
+ }
+
+  var trace1 = {
+    type: 'bar',
+    name: 'average rating',
+    x: unpack(rows, 'title'),
+    y: unpack(rows, 'average vote'),
+    bar: {color: '#0B0000'}
+  }
+
+  var data = [trace1];
+
+  var layout = {
+   title: 'Average vote per movie',
+   font:{
+     family: 'Raleway, sans-serif',
+     size: '7'
+   },
+   showlegend: false,
+   xaxis: {
+     tickangle: -45
+   },
+   yaxis: {
+     zeroline: false,
+     gridwidth: 2,
+     //tickangle: -45
+   },
+   bargap :0.05
+ };
+
+ Plotly.newPlot('myDiv2', data, layout, {scrollZoom: true}, {responsive: true});
+  })
+
+ //Vote average vs Production
+ Plotly.d3.csv("http://localhost:8000/Plotlyjs/production/production.csv", function(err, rows){
+
+    function unpack(rows, key) {
+    return rows.map(function(row) { return row[key]; });
+  }
+
+   var trace1 = {
+     type: 'bar',
+     name: 'average vote',
+     x: unpack(rows, 'production_companies'),
+     y: unpack(rows, 'average vote'),
+     bar: {color: '#0B0000'}
+   }
+
+   var data = [trace1];
+
+   var layout = {
+    title: 'Average vote per production company',
+    font:{
+      family: 'Raleway, sans-serif',
+      size: '7'
+    },
+    showlegend: false,
+    xaxis: {
+      tickangle: -45
+    },
+    yaxis: {
+      zeroline: false,
+      gridwidth: 2,
+      //tickangle: -45
+    },
+    bargap :0.05
+  };
+
+  Plotly.newPlot('myDiv3', data, layout, {scrollZoom: true}, {responsive: true});
+   })
+
+   //average rating vs Production
+   Plotly.d3.csv("http://localhost:8000/Plotlyjs/production/production.csv", function(err, rows){
+
+      function unpack(rows, key) {
+      return rows.map(function(row) { return row[key]; });
+    }
+
+     var trace1 = {
+       //mode: 'lines+markers',
+       mode: 'lines+markers',
+       type: 'scatter',
+       name: 'average rating',
+       x: unpack(rows, 'production_companies'),
+       y: unpack(rows, 'average rating'),
+       bar: {color: '#0B0000'}
+     }
+
+     var data = [trace1];
+
+     var layout = {
+      title: 'Average Rating per production company',
+      font:{
+        family: 'Raleway, sans-serif',
+        size: '7'
+      },
+      showlegend: false,
+      xaxis: {
+        tickangle: -45
+      },
+      yaxis: {
+        zeroline: false,
+        gridwidth: 2,
+        //tickangle: -45
+      },
+      bargap :0.05
+    };
+
+    Plotly.newPlot('myDiv4', data, layout, {scrollZoom: true}, {responsive: true});
+     })
+
+     //average Popularity vs Production
+     Plotly.d3.csv("http://localhost:8000/Plotlyjs/production/production.csv", function(err, rows){
+
+        function unpack(rows, key) {
+        return rows.map(function(row) { return row[key]; });
+      }
+
+       var trace1 = {
+         //mode: 'lines+markers',
+         mode: 'lines+markers',
+         type: 'scatter',
+         name: 'average popularity',
+         x: unpack(rows, 'production_companies'),
+         y: unpack(rows, 'average popularity'),
+         marker: {
+           color: '#C8A2C8',
+           line: {
+             width: 2.5
+           },
+         },
+         bar: {color: '#0B0000'}
+       }
+
+       var data = [trace1];
+
+       var layout = {
+        title: 'Average Popularity per production company',
+        font:{
+          family: 'Raleway, sans-serif',
+          size: '7'
+        },
+        showlegend: false,
+        xaxis: {
+          tickangle: -45
+        },
+        yaxis: {
+          zeroline: false,
+          gridwidth: 2,
+          //tickangle: -45
+        },
+      };
+
+      Plotly.newPlot('myDiv5', data, layout, {scrollZoom: true}, {responsive: true});
+       })
+
+       //average rating vs user
+       Plotly.d3.csv("http://localhost:8000/Plotlyjs/users/users.csv", function(err, rows){
+
+          function unpack(rows, key) {
+          return rows.map(function(row) { return row[key]; });
+        }
+
+         var trace1 = {
+           //mode: 'lines+markers',
+           type: 'bar',
+           name: 'average popularity',
+           x: unpack(rows, 'userid'),
+           y: unpack(rows, 'average rating'),
+           marker: {
+             color: '#B22222',
+             line: {
+               width: 2.5
+             },
+           },
+           bar: {color: '#0B0000'}
+         }
+
+         var data = [trace1];
+
+         var layout = {
+          title: 'Average Rating per User',
+          font:{
+            family: 'Raleway, sans-serif',
+            size: '7'
+          },
+          showlegend: false,
+          xaxis: {
+            tickangle: -45
+          },
+          yaxis: {
+            zeroline: false,
+            gridwidth: 2,
+            //tickangle: -45
+          },
+          bargap :0.05
+        };
+
+        Plotly.newPlot('myDiv6', data, layout, {scrollZoom: true}, {responsive: true});
+         })
+
+
+
+</script>
+
+</body>
+</html>
